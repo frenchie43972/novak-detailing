@@ -6,13 +6,15 @@ useSeoMeta({
 </script>
 
 <template>
-  <HomeHero />
-  <ServicesSection />
-  <PricingSection />
-  <GallerySection />
-  <AboutSection />
-  <TestimonialsSection />
-  <ServiceAreaSection />
-  <FaqSection />
-  <ContactSection />
+  <div class="site-page">
+    <HomeHero />
+    <ServicesSection />
+    <PricingSection />
+    <GallerySection />
+    <AboutSection />
+    <TestimonialsSection />
+    <ServiceAreaSection />
+    <FaqSection />
+    <ContactSection />
+  </div>
 </template>
