@@ -1,45 +1,34 @@
 # Novak Detailing Co.
 
-Single-page marketing website for Novak Detailing Co., serving the Akron–Canton area.
+One-page website for Novak Detailing Co., a mobile and warehouse car detailer serving Akron, Canton and Northeast Ohio.
 
-## Stack
+Plain HTML and CSS. No build step, no dependencies.
 
-- Nuxt 4
-- Vue 3 and TypeScript
-- Vanilla CSS
-- Static generation
-- Nuxt Image, Sitemap, Robots, and ESLint
+## Files
 
-## Development
+- `index.html`: the whole site, including the page title and description and the business details Google reads (the JSON-LD block in `<head>`)
+- `styles.css`: dark theme, brand black and blue
+- `script.js`: header menu, before/after slider, photo viewer and scroll animations (the page still works without it)
+- `images/`: photos and logos, converted to WebP
+- `sitemap.xml`, `robots.txt`, `404.html`
 
-```bash
-npm install
-npm run dev
-```
-
-## Validation
+## Preview locally
 
 ```bash
-npm run lint
-npm run generate
+python -m http.server 8080
 ```
 
-## SEO and production environment
+Then open http://localhost:8080. You can also just double-click `index.html`.
 
-Copy `.env.example` to `.env` for local configuration. The site intentionally remains non-indexable until both a real production URL is supplied and indexing is explicitly enabled.
+## Before launch
 
-```bash
-NUXT_PUBLIC_SITE_URL=https://www.example.com
-NUXT_SITE_INDEXABLE=true
-```
+1. **Domain.** The site assumes `https://www.novakdetailing.com`. If the real domain is different, find and replace it in `index.html`, `robots.txt` and `sitemap.xml`.
+2. **Hosting.** Any static host works for free: Cloudflare Pages, Netlify or GitHub Pages. Point it at this repo with no build command and `/` as the output folder.
+3. **Google Search Console.** Add the domain, paste the verification tag into `index.html` where the comment marks it, and submit `/sitemap.xml`.
+4. **Google Business Profile.** This matters more than anything on the site for local searches. Use the exact same name and phone number as the site (`Novak Detailing Co.`, `740-827-8386`) and link it to the website.
 
-Optional Google Search Console and Bing Webmaster Tools verification tokens can be supplied with:
+## Editing
 
-```bash
-NUXT_PUBLIC_GOOGLE_SITE_VERIFICATION=
-NUXT_PUBLIC_BING_SITE_VERIFICATION=
-```
-
-The SEO foundation includes server-rendered metadata, canonical URL support, LocalBusiness structured data, sitemap generation, robots controls, and Google/Bing verification hooks. Search Console, Bing Webmaster Tools, IndexNow, final Open Graph imagery, and production-domain validation are completed after the real domain and hosting are established.
-
-The site still requires final business photos, gallery content, social links, branding assets, and a final UI/performance pass before launch.
+- Change text directly in `index.html`.
+- New photos: resize to about 1200px on the long side, save as WebP, put them in `images/`, and copy an existing `<img>` line in the gallery. Always write a short, descriptive `alt`.
+- When you change content, update `<lastmod>` in `sitemap.xml`.
